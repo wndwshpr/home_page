@@ -110,10 +110,16 @@
     </div>
 
     <script>
-        // Get store ID from URL path
-        const pathParts = window.location.pathname.split('/');
-        const storeId = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        // Get store ID from URL parameter or path
         const urlParams = new URLSearchParams(window.location.search);
+        let storeId = urlParams.get('id');
+        
+        if (!storeId) {
+            // Try to get from path
+            const pathParts = window.location.pathname.split('/');
+            storeId = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        }
+        
         const ref = urlParams.get('ref');
         
         // Build deep link

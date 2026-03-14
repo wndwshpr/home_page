@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindowShopper</title>
+    <script>
+        // GitHub Pages redirect handling
+        const path = window.location.pathname;
+        const segments = path.split('/').filter(s => s);
+        
+        // Remove 'home_page' from segments if present
+        if (segments[0] === 'home_page') {
+            segments.shift();
+        }
+        
+        if (segments.length >= 2) {
+            if (segments[0] === 's') {
+                // Store page
+                window.location.replace('/home_page/s.html?id=' + segments[1]);
+            } else if (segments[0] === 'p') {
+                // Product page  
+                window.location.replace('/home_page/p.html?id=' + segments[1]);
+            } else {
+                // Default to home
+                window.location.replace('/home_page/');
+            }
+        } else {
+            // Default to home
+            window.location.replace('/home_page/');
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
