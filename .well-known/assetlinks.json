@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.windowshopper.smartshopping",
+    "sha256_cert_fingerprints": [
+      "F7:34:13:5D:2B:1B:FA:2A:84:B2:2C:09:60:E7:44:06:65:20:CE:7B:B0:BC:3A:BB:85:C7:EE:71:D2:D8:98:AA"
+    ]
+  }
+}]
