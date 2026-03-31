@@ -1,10 +1,14 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.windowshopper.smartshopping",
-    "sha256_cert_fingerprints": [
-      "F7:34:13:5D:2B:1B:FA:2A:84:B2:2C:09:60:E7:44:06:65:20:CE:7B:B0:BC:3A:BB:85:C7:EE:71:D2:D8:98:AA"
-    ]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.windowshopper.smartshopping",
+      "sha256_cert_fingerprints": [
+        "C7:93:F1:63:73:88:2B:D3:8B:FC:E7:50:E0:81:F8:E4:A2:AC:73:CA:F9:79:85:45:C4:31:FB:17:63:AC:10:CB"
+      ]
+    }
   }
-}]
+]
