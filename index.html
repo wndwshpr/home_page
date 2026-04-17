@@ -11,10 +11,15 @@
             box-sizing: border-box;
         }
         
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
         body {
             font-family: 'Arial Black', Arial, sans-serif;
             background: #e8e8e8;
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -25,73 +30,113 @@
         .container {
             text-align: center;
             width: 100%;
-            max-width: 500px;
-            padding: 20px;
+            height: 100vh;
+            padding: 2vh 4vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .corner-star {
             position: fixed;
-            font-size: 60px;
+            font-size: clamp(30px, 4vw, 60px);
             color: black;
             font-weight: normal;
+            z-index: 10;
         }
         
-        .star-tl { top: 40px; left: 40px; }
-        .star-tr { top: 40px; right: 40px; }
-        .star-bl { bottom: 40px; left: 40px; }
-        .star-br { bottom: 40px; right: 40px; }
+        .star-tl { top: 2vh; left: 2vw; }
+        .star-tr { top: 2vh; right: 2vw; }
+        .star-bl { bottom: 2vh; left: 2vw; }
+        .star-br { bottom: 2vh; right: 2vw; }
         
         .title {
-            font-size: 60px;
+            font-size: clamp(24px, 5vw, 60px);
             font-weight: 900;
-            letter-spacing: 8px;
-            margin-bottom: 40px;
+            letter-spacing: clamp(2px, 0.5vw, 8px);
             line-height: 1;
-            text-align: center;
-            width: 100%;
+            margin-bottom: 1vh;
         }
         
         .image-container {
-            width: 400px;
-            height: 400px;
-            margin: 0 auto 40px auto;
+            width: clamp(150px, 25vw, 300px);
+            height: clamp(150px, 25vw, 300px);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: none;
+            flex-shrink: 0;
         }
         
         .logo-img {
-            max-width: 350px;
-            max-height: 350px;
+            max-width: 100%;
+            max-height: 100%;
             width: auto;
             height: auto;
         }
         
         .subtitle {
-            font-size: 40px;
+            font-size: clamp(18px, 3vw, 40px);
             font-weight: 900;
-            letter-spacing: 6px;
-            margin-bottom: 80px;
-            line-height: 1;
+            letter-spacing: clamp(2px, 0.4vw, 6px);
+            line-height: 1.2;
+            margin: 1vh 0;
+        }
+        
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(12px, 2vh, 20px);
+            align-items: center;
+            margin: 2vh 0;
+        }
+        
+        .store-badge {
+            display: inline-block;
+            position: relative;
+            width: clamp(350px, 70vw, 560px);
+            height: clamp(114px, 17.5vh, 186px);
+        }
+        
+        .store-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+        
+        .store-badge:not(.coming-soon-overlay):hover img {
+            transform: scale(1.05);
+        }
+        
+        .ios-coming-soon {
+            font-size: clamp(11px, 1.8vw, 16px);
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.5);
+            letter-spacing: clamp(0.5px, 0.1vw, 1px);
+            font-family: Arial, sans-serif;
         }
         
         .nav-links {
-            margin-bottom: 80px;
+            display: flex;
+            gap: clamp(10px, 2vw, 20px);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1vh 0;
         }
         
         .nav-link {
-            display: block;
             color: black;
             text-decoration: none;
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-size: clamp(8px, 1.2vw, 14px);
+            font-weight: 700;
+            letter-spacing: clamp(1px, 0.2vw, 2px);
+            opacity: 0.6;
+            transition: opacity 0.2s;
         }
         
         .nav-link:hover {
+            opacity: 1;
             text-decoration: underline;
         }
         
@@ -99,28 +144,71 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: clamp(10px, 2vw, 20px);
+            margin-top: 1vh;
         }
         
         .footer-star {
-            font-size: 60px;
+            font-size: clamp(20px, 3vw, 40px);
             color: black;
         }
         
         .date {
-            font-size: 32px;
+            font-size: clamp(14px, 2vw, 28px);
             font-weight: 900;
-            letter-spacing: 4px;
+            letter-spacing: clamp(1px, 0.3vw, 4px);
         }
         
-        @media (max-width: 768px) {
-            .title { font-size: 36px; letter-spacing: 4px; }
-            .image-container { width: 280px; height: 280px; }
-            .logo-img { max-width: 250px; max-height: 250px; }
-            .subtitle { font-size: 24px; letter-spacing: 3px; }
-            .nav-link { font-size: 20px; letter-spacing: 2px; }
-            .date { font-size: 20px; letter-spacing: 2px; }
-            .corner-star, .footer-star { font-size: 40px; }
+        /* Landscape orientation adjustments */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .container {
+                padding: 1vh 4vw;
+            }
+            
+            .image-container {
+                width: clamp(100px, 15vh, 200px);
+                height: clamp(100px, 15vh, 200px);
+            }
+            
+            .title {
+                font-size: clamp(20px, 4vh, 40px);
+                margin-bottom: 0.5vh;
+            }
+            
+            .subtitle {
+                font-size: clamp(14px, 2.5vh, 30px);
+                margin: 0.5vh 0;
+            }
+            
+            .download-buttons {
+                gap: clamp(6px, 1vh, 12px);
+                margin: 1vh 0;
+            }
+            
+            .store-badge {
+                width: clamp(298px, 79vw, 455px);
+                height: clamp(96px, 15.75vh, 151px);
+            }
+            
+            .ios-coming-soon {
+                font-size: clamp(10px, 1.6vw, 14px);
+            }
+            
+            .nav-links {
+                margin: 0.5vh 0;
+            }
+            
+            .footer {
+                margin-top: 0.5vh;
+            }
+        }
+        
+        /* Very small screens */
+        @media (max-width: 350px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -131,18 +219,27 @@
     <div class="corner-star star-br">★</div>
     
     <div class="container">
-        <h1>WindowShopper</h1>
+        <h1 class="title">WindowShopper</h1>
         
         <div class="image-container">
             <img src="logo.png" alt="WindowShopper Logo" class="logo-img">
         </div>
         
-        <div class="subtitle">ウィンドウショッパー<br></div>
+        <div class="subtitle">ウィンドウショッパー</div>
         
+        <div class="download-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.windowshopper.smartshopping" class="store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+            </a>
+            
+            <p class="ios-coming-soon">iOS version coming soon</p>
+        </div>
         
         <div class="nav-links">
             <a href="/privacy-policy.html" class="nav-link">PRIVACY POLICY</a>
+            <span style="opacity: 0.3;">•</span>
             <a href="/terms-of-service.html" class="nav-link">TERMS OF SERVICE</a>
+            <span style="opacity: 0.3;">•</span>
             <a href="/data-deletion.html" class="nav-link">DATA DELETION</a>
         </div>
         
