@@ -25,43 +25,43 @@
             justify-content: center;
             color: black;
             position: relative;
+            padding: max(env(safe-area-inset-top), 3vh) max(env(safe-area-inset-right), 2vw) max(env(safe-area-inset-bottom), 2vh) max(env(safe-area-inset-left), 2vw);
         }
         
         .container {
             text-align: center;
             width: 100%;
-            height: 100vh;
-            padding: 2vh 4vw;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
         }
         
         .corner-star {
             position: fixed;
-            font-size: clamp(30px, 4vw, 60px);
+            font-size: clamp(28px, 4.5vmin, 60px);
             color: black;
             font-weight: normal;
             z-index: 10;
         }
         
-        .star-tl { top: 2vh; left: 2vw; }
-        .star-tr { top: 2vh; right: 2vw; }
-        .star-bl { bottom: 2vh; left: 2vw; }
-        .star-br { bottom: 2vh; right: 2vw; }
+        .star-tl { top: max(env(safe-area-inset-top), 3vh); left: max(env(safe-area-inset-left), 3vw); }
+        .star-tr { top: max(env(safe-area-inset-top), 3vh); right: max(env(safe-area-inset-right), 3vw); }
+        .star-bl { bottom: max(env(safe-area-inset-bottom), 3vh); left: max(env(safe-area-inset-left), 3vw); }
+        .star-br { bottom: max(env(safe-area-inset-bottom), 3vh); right: max(env(safe-area-inset-right), 3vw); }
         
         .title {
-            font-size: clamp(24px, 5vw, 60px);
+            font-size: clamp(28px, 6vmin, 80px);
             font-weight: 900;
-            letter-spacing: clamp(2px, 0.5vw, 8px);
+            letter-spacing: clamp(2px, 0.5vmin, 10px);
             line-height: 1;
-            margin-bottom: 1vh;
+            white-space: nowrap;
         }
         
         .image-container {
-            width: clamp(150px, 25vw, 300px);
-            height: clamp(150px, 25vw, 300px);
+            width: clamp(180px, 28vmin, 400px);
+            height: clamp(180px, 28vmin, 400px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,63 +76,63 @@
         }
         
         .subtitle {
-            font-size: clamp(18px, 3vw, 40px);
+            font-size: clamp(22px, 4vmin, 50px);
             font-weight: 900;
-            letter-spacing: clamp(2px, 0.4vw, 6px);
+            letter-spacing: clamp(2px, 0.4vmin, 8px);
             line-height: 1.2;
-            margin: 1vh 0;
+            white-space: nowrap;
         }
         
-        .download-buttons {
+        .download-section {
             display: flex;
             flex-direction: column;
-            gap: clamp(12px, 2vh, 20px);
+            gap: clamp(10px, 2vmin, 20px);
             align-items: center;
-            margin: 2vh 0;
         }
         
         .store-badge {
             display: inline-block;
-            position: relative;
-            width: clamp(350px, 70vw, 560px);
-            height: clamp(114px, 17.5vh, 186px);
+            width: clamp(220px, 40vmin, 500px);
+            height: auto;
         }
         
         .store-badge img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: auto;
+            display: block;
             transition: transform 0.2s;
         }
         
-        .store-badge:not(.coming-soon-overlay):hover img {
+        .store-badge:hover img {
             transform: scale(1.05);
         }
         
         .ios-coming-soon {
-            font-size: clamp(11px, 1.8vw, 16px);
+            font-size: clamp(11px, 1.6vmin, 18px);
             font-weight: 400;
             color: rgba(0, 0, 0, 0.5);
-            letter-spacing: clamp(0.5px, 0.1vw, 1px);
+            letter-spacing: clamp(0.5px, 0.1vmin, 1.5px);
             font-family: Arial, sans-serif;
+            white-space: nowrap;
         }
         
         .nav-links {
             display: flex;
-            gap: clamp(10px, 2vw, 20px);
-            flex-wrap: wrap;
+            gap: clamp(10px, 2vmin, 20px);
+            align-items: center;
             justify-content: center;
-            margin: 1vh 0;
+            flex-wrap: nowrap;
         }
         
         .nav-link {
             color: black;
             text-decoration: none;
-            font-size: clamp(8px, 1.2vw, 14px);
+            font-size: clamp(9px, 1.3vmin, 16px);
             font-weight: 700;
-            letter-spacing: clamp(1px, 0.2vw, 2px);
+            letter-spacing: clamp(0.5px, 0.15vmin, 2px);
             opacity: 0.6;
             transition: opacity 0.2s;
+            white-space: nowrap;
         }
         
         .nav-link:hover {
@@ -140,74 +140,54 @@
             text-decoration: underline;
         }
         
+        .nav-separator {
+            opacity: 0.3;
+            font-size: clamp(9px, 1.3vmin, 16px);
+        }
+        
         .footer {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: clamp(10px, 2vw, 20px);
-            margin-top: 1vh;
+            gap: clamp(10px, 2vmin, 20px);
+            flex-wrap: nowrap;
         }
         
         .footer-star {
-            font-size: clamp(20px, 3vw, 40px);
+            font-size: clamp(20px, 3.5vmin, 50px);
             color: black;
         }
         
         .date {
-            font-size: clamp(14px, 2vw, 28px);
+            font-size: clamp(16px, 2.5vmin, 36px);
             font-weight: 900;
-            letter-spacing: clamp(1px, 0.3vw, 4px);
+            letter-spacing: clamp(1px, 0.3vmin, 5px);
+            white-space: nowrap;
         }
         
-        /* Landscape orientation adjustments */
-        @media (orientation: landscape) and (max-height: 600px) {
+        /* Ensure everything stays visible on very small screens */
+        @media (max-height: 500px) {
+            body {
+                padding: 2vh 2vw;
+            }
+            
             .container {
-                padding: 1vh 4vw;
+                gap: 0.5vh;
             }
             
-            .image-container {
-                width: clamp(100px, 15vh, 200px);
-                height: clamp(100px, 15vh, 200px);
+            .corner-star {
+                font-size: clamp(18px, 3vmin, 40px);
             }
-            
+        }
+        
+        /* Extra small width handling */
+        @media (max-width: 400px) {
             .title {
-                font-size: clamp(20px, 4vh, 40px);
-                margin-bottom: 0.5vh;
+                font-size: clamp(18px, 5vw, 50px);
             }
             
             .subtitle {
-                font-size: clamp(14px, 2.5vh, 30px);
-                margin: 0.5vh 0;
-            }
-            
-            .download-buttons {
-                gap: clamp(6px, 1vh, 12px);
-                margin: 1vh 0;
-            }
-            
-            .store-badge {
-                width: clamp(298px, 79vw, 455px);
-                height: clamp(96px, 15.75vh, 151px);
-            }
-            
-            .ios-coming-soon {
-                font-size: clamp(10px, 1.6vw, 14px);
-            }
-            
-            .nav-links {
-                margin: 0.5vh 0;
-            }
-            
-            .footer {
-                margin-top: 0.5vh;
-            }
-        }
-        
-        /* Very small screens */
-        @media (max-width: 350px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 5px;
+                font-size: clamp(14px, 3.5vw, 35px);
             }
         }
     </style>
@@ -227,19 +207,18 @@
         
         <div class="subtitle">ウィンドウショッパー</div>
         
-        <div class="download-buttons">
+        <div class="download-section">
             <a href="https://play.google.com/store/apps/details?id=com.windowshopper.smartshopping" class="store-badge" target="_blank" rel="noopener noreferrer">
                 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
             </a>
-            
             <p class="ios-coming-soon">iOS version coming soon</p>
         </div>
         
         <div class="nav-links">
             <a href="/privacy-policy.html" class="nav-link">PRIVACY POLICY</a>
-            <span style="opacity: 0.3;">•</span>
+            <span class="nav-separator">•</span>
             <a href="/terms-of-service.html" class="nav-link">TERMS OF SERVICE</a>
-            <span style="opacity: 0.3;">•</span>
+            <span class="nav-separator">•</span>
             <a href="/data-deletion.html" class="nav-link">DATA DELETION</a>
         </div>
         
