@@ -157,14 +157,19 @@
         
         .footer-star {
             font-size: clamp(20px, 3.5vmin, 50px);
-            color: black;
+            color: transparent;
+            -webkit-text-stroke: 1px black;
+            text-stroke: 1px black;
         }
         
-        .date {
-            font-size: clamp(16px, 2.5vmin, 36px);
-            font-weight: 900;
-            letter-spacing: clamp(1px, 0.3vmin, 5px);
+        .copyright {
+            font-size: clamp(8px, 1.2vmin, 12px);
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.4);
+            letter-spacing: clamp(0.3px, 0.08vmin, 0.8px);
+            font-family: Arial, sans-serif;
             white-space: nowrap;
+            text-align: center;
         }
         
         /* Ensure everything stays visible on very small screens */
@@ -226,9 +231,10 @@
         
         <div class="footer">
             <div class="footer-star">★</div>
-            <div class="date">EST 2025</div>
             <div class="footer-star">★</div>
         </div>
+        
+        <p class="copyright">© 2025 WndwShpr</p>
     </div>
 </body>
 </html>
